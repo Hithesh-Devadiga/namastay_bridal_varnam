@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Namastay Bridal Varnam - Luxury Jewellery Rental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      scroll-behavior: smooth;
+    }
+    
+    :root {
+      --primary-color: #c8a165;
+      --primary-dark: #a88445;
+      --primary-light: #e8d4b2;
+      --secondary-color: #5a4328;
+      --background: #fdf7f2;
+      --text-dark: #333333;
+      --text-medium: #666666;
+      --text-light: #888888;
+      --white: #ffffff;
+      --spacing-xs: 5px;
+      --spacing-sm: 10px;
+      --spacing-md: 20px;
+      --spacing-lg: 40px;
+      --spacing-xl: 60px;
+      --border-radius: 8px;
+      --shadow-soft: 0 4px 12px rgba(0,0,0,0.05);
+      --shadow-medium: 0 6px 18px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--background);
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+    
+    /* Header Styles */
+    header {
+      background: var(--white);
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-light), var(--primary-color), var(--primary-light));
+    }
+    
+    .logo-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+    
+    .tagline {
+      font-family: 'Great Vibes', cursive;
+      color: var(--text-medium);
+      font-size: 1.6rem;
+      margin-top: var(--spacing-xs);
+      letter-spacing: 1px;
+    }
+    
+    /* Navigation */
+    nav {
+      text-align: center;
+      padding: var(--spacing-md) 0;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav a {
+      margin: 0 var(--spacing-lg);
+      text-decoration: none;
+      color: var(--secondary-color);
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: var(--transition);
+      position: relative;
+      padding: var(--spacing-xs) 0;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--primary-color);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    nav a:hover {
+      color: var(--primary-color);
+    }
+    
+    nav a:hover::after {
+      width: 70%;
+    }
+    
+    /* Section Styles */
+    section {
+      padding: var(--spacing-xl) var(--spacing-md);
+      max-width: 1000px;
+      margin: auto;
+    }
+    
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--primary-color);
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-lg);
+      text-align: center;
+      position: relative;
+      padding-bottom: var(--spacing-md);
+    }
+    
+    .section-heading::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background-color: var(--primary-color);
+    }
+    
+    .highlight-box {
+      background: var(--white);
+      border-left: 5px solid var(--primary-color);
+      padding: var(--spacing-lg) var(--spacing-lg);
+      margin-top: var(--spacing-md);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      font-size: 1.05rem;
+      color: var(--text-medium);
+      line-height: 1.8;
+    }
+    
+    .highlight-box p {
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .highlight-box strong {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    
+    /* Gallery Styles */
+    .gallery-row {
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .gallery-title {
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+      color: var(--secondary-color);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .gallery-loop {
+      display: flex;
+      gap: var(--spacing-md);
+      overflow: hidden;
+      padding: var(--spacing-sm) 0;
+    }
+    
+    .gallery-track {
+      display: flex;
+      animation: scrollGallery 60s linear infinite;
+    }
+    
+    .gallery-track img {
+      width: 240px;
+      height: 320px;
+      border-radius: var(--border-radius);
+      object-fit: cover;
+      margin-right: var(--spacing-md);
+      box-shadow: var(--shadow-medium);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .gallery-track img:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    }
+    
+    @keyframes scrollGallery {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    .collection-desc {
+      font-size: 1.05rem;
+      color: var(--text-medium);
+      margin-top: var(--spacing-lg);
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      font-style: italic;
+    }
+    
+    /* Features List */
+    .features-list {
+      list-style-type: none;
+    }
+    
+    .features-list li {
+      margin-bottom: var(--spacing-md);
+      position: relative;
+      padding-left: 32px;
+      font-size: 1.05rem;
+    }
+    
+    .features-list li::before {
+      content: "✨";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+    }
+    
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 14px 32px;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-top: var(--spacing-lg);
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(200, 161, 101, 0.3);
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(200, 161, 101, 0.4);
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      text-align: center;
+    }
+    
+    .contact-text {
+      font-size: 1.15rem;
+      color: var(--text-medium);
+      max-width: 600px;
+      margin: 0 auto var(--spacing-lg);
+      line-height: 1.8;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background: var(--white);
+      padding: var(--spacing-xl) var(--spacing-md);
+      text-align: center;
+      border-top: 1px solid #f0f0f0;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .social-icons {
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      margin: 0 var(--spacing-md);
+      transition: transform 0.3s ease;
+    }
+    
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      filter: invert(76%) sepia(14%) saturate(1134%) hue-rotate(358deg) brightness(86%) contrast(83%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+    
+    .social-icons a:hover img {
+      filter: invert(63%) sepia(19%) saturate(825%) hue-rotate(358deg) brightness(89%) contrast(85%);
+      transform: scale(1.2) rotate(5deg);
+    }
+    
+    .copyright {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: var(--spacing-md);
+    }
+    
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+      margin: var(--spacing-md) auto;
+      width: 80%;
+    }
+    
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .logo-title {
+        font-size: 2.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.3rem;
+      }
+      
+      .section-heading {
+        font-size: 2rem;
+      }
+      
+      nav a {
+        margin: 0 var(--spacing-md);
+        font-size: 0.85rem;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      :root {
+        --spacing-lg: 30px;
+        --spacing-xl: 40px;
+      }
+      
+      nav {
+        padding: var(--spacing-sm) 0;
+      }
+      
+      nav a {
+        display: block;
+        margin: var(--spacing-sm) 0;
+        font-size: 0.9rem;
+      }
+      
+      .gallery-loop {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: var(--spacing-md);
+      }
+      
+      .gallery-track {
+        animation: none;
+      }
+      
+      .gallery-track img {
+        width: 220px;
+        height: 300px;
+        margin-right: var(--spacing-md);
+        scroll-snap-align: center;
+      }
+      
+      .highlight-box {
+        padding: var(--spacing-md);
+      }
+      
+      .features-list li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="logo-title">Namastay Bridal Varnam</h1>
+    <p class="tagline">Jewellery. Glamour. Rent Your Shine.</p>
+  </header>
+
+  <nav>
+    <a onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About</a>
+    <a onclick="document.getElementById('whyus').scrollIntoView({behavior: 'smooth'})">Why Choose Us</a>
+    <a onclick="document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">Our Collections</a>
+    <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2 class="section-heading">About Our Jewellery Rental</h2>
+    <div class="highlight-box">
+      <p>
+        Namastay Bridal Varnam curates and offers exceptional one-of-a-kind jewellery pieces exclusively for rent. Why buy, when you can wear a unique masterpiece just for your day of shine?
+      </p>
+      <p>
+        This is the approximate rent price. Please call or WhatsApp <strong>+91 7829599175</strong> for accurate pricing. The final rent depends on mix-match or additional items like long jada or anklets.
+      </p>
+      <p>
+        For extra photos or details, feel free to contact us. Please avoid sprays or water on the jewellery.
+      </p>
+      <p>
+        We ship all over Karnataka.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="whyus">
+    <h2 class="section-heading">Why Choose Us</h2>
+    <div class="highlight-box">
+      <ul class="features-list">
+        <li>Wide range of traditional and modern designs</li>
+        <li>Hassle-free delivery & pickup within Karnataka</li>
+        <li>Affordable rental plans with no compromise on luxury</li>
+        <li>Perfect for pre-wedding shoots, receptions & cultural events</li>
+        <li>Eco-friendly approach to fashion</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="gallery">
+    <h2 class="section-heading">Our Collections</h2>
+    
+    <div class="gallery-row">
+      <div class="gallery-title">Statement Sets</div>
+      <div class="gallery-loop">
+        <div class="gallery-track">
+          <img src="images/1.jpg" alt="Jewellery Set 1" />
+          <img src="images/2.jpg" alt="Jewellery Set 2" />
+          <img src="images/3.jpg" alt="Jewellery Set 3" />
+          <img src="images/4.jpg" alt="Jewellery Set 4" />
+          <img src="images/1.jpg" alt="Jewellery Set 1 Duplicate" />
+          <img src="images/2.jpg" alt="Jewellery Set 2 Duplicate" />
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-row">
+      <div class="gallery-title">Elegant Essentials</div>
+      <div class="gallery-loop">
+        <div class="gallery-track">
+          <img src="images/5.jpg" alt="Jewellery 5" />
+          <img src="images/6.jpg" alt="Jewellery 6" />
+          <img src="images/7.jpg" alt="Jewellery 7" />
+          <img src="images/8.jpg" alt="Jewellery 8" />
+          <img src="images/5.jpg" alt="Jewellery 5 Duplicate" />
+          <img src="images/6.jpg" alt="Jewellery 6 Duplicate" />
+        </div>
+      </div>
+    </div>
+
+    <p class="collection-desc">
+      Discover handpicked, elegant pieces at Namastay Bridal Varnam — your destination for exclusive jewellery available for rent, curated for weddings, festive celebrations, and cultural occasions.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact" class="contact-section">
+    <h2 class="section-heading">Contact Us</h2>
+    <p class="contact-text">
+      Reach out to us directly on WhatsApp or through social media for bookings and inquiries. Our team is available to assist you in finding the perfect jewellery for your special occasion.
+    </p>
+    <div>
+      <a class="btn" href="https://wa.me/917829599175" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-icons" aria-label="Social media links">
+      <a href="https://www.instagram.com/namastay_bridal_varnam" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/instagram.svg" alt="Instagram icon" />
+      </a>
+      <a href="https://wa.me/917829599175" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/whatsapp.svg" alt="WhatsApp icon" />
+      </a>
+      <a href="https://twitter.com/namastay_varnam" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/twitter.svg" alt="Twitter icon" />
+      </a>
+      <a href="https://www.facebook.com/namastayvarnam" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/facebook.svg" alt="Facebook icon" />
+      </a>      
+    </div>
+    <p class="copyright">&copy; 2025 Namastay Bridal Varnam. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
